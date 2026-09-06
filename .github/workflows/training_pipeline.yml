@@ -1,0 +1,47 @@
+name: Daily Training & Model Retraining Pipeline
+
+on:
+  schedule:
+    # Run every day at 02:00 UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/models/**'
+      - 'src/training_pipeline.py'
+
+jobs:
+  train-and-evaluate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Model Training & Benchmarking
+        env:
+          HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
+          HOPSWORKS_PROJECT_NAME: ${{ secrets.HOPSWORKS_PROJECT_NAME }}
+        run: |
+          python run_pipeline.py --train
+          python run_pipeline.py --explain
+
+      - name: Commit Champion Model and Registry Metadata
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add models/ plots/ || true
+          git diff-index --quiet HEAD || git commit -m "Automated daily model retraining & evaluation [skip ci]"
+          git push || true

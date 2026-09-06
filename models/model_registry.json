@@ -1,0 +1,150 @@
+{
+  "models": [
+    {
+      "name": "Ridge_Baseline",
+      "version": 1,
+      "artifact_path": "C:\\Users\\shahe\\aqi-predictor\\models\\Ridge_Baseline_v1.joblib",
+      "filename": "Ridge_Baseline_v1.joblib",
+      "metrics": {
+        "rmse_24h": 5.53,
+        "mae_24h": 4.36,
+        "r2_24h": 0.6192,
+        "rmse_48h": 9.67,
+        "mae_48h": 7.41,
+        "r2_48h": -0.1519,
+        "rmse_72h": 11.17,
+        "mae_72h": 8.61,
+        "r2_72h": -0.5054,
+        "overall_rmse": 9.11,
+        "overall_mae": 6.79,
+        "overall_r2": -0.0127
+      },
+      "parameters": {
+        "model_type": "ridge",
+        "alpha": 1.0,
+        "random_state": 42
+      },
+      "created_at": "2026-09-06T16:38:04.048688",
+      "is_champion": false
+    },
+    {
+      "name": "Random_Forest",
+      "version": 1,
+      "artifact_path": "C:\\Users\\shahe\\aqi-predictor\\models\\Random_Forest_v1.joblib",
+      "filename": "Random_Forest_v1.joblib",
+      "metrics": {
+        "rmse_24h": 6.14,
+        "mae_24h": 4.7,
+        "r2_24h": 0.5307,
+        "rmse_48h": 8.98,
+        "mae_48h": 6.91,
+        "r2_48h": 0.0066,
+        "rmse_72h": 10.02,
+        "mae_72h": 7.83,
+        "r2_72h": -0.211,
+        "overall_rmse": 8.54,
+        "overall_mae": 6.48,
+        "overall_r2": 0.1087
+      },
+      "parameters": {
+        "model_type": "random_forest",
+        "n_estimators": 100,
+        "max_depth": 12,
+        "random_state": 42
+      },
+      "created_at": "2026-09-06T16:38:04.176483",
+      "is_champion": true
+    },
+    {
+      "name": "Gradient_Boosting",
+      "version": 1,
+      "artifact_path": "C:\\Users\\shahe\\aqi-predictor\\models\\Gradient_Boosting_v1.joblib",
+      "filename": "Gradient_Boosting_v1.joblib",
+      "metrics": {
+        "rmse_24h": 5.92,
+        "mae_24h": 4.71,
+        "r2_24h": 0.5635,
+        "rmse_48h": 9.26,
+        "mae_48h": 7.23,
+        "r2_48h": -0.0571,
+        "rmse_72h": 11.12,
+        "mae_72h": 8.86,
+        "r2_72h": -0.4925,
+        "overall_rmse": 9.03,
+        "overall_mae": 6.94,
+        "overall_r2": 0.0046
+      },
+      "parameters": {
+        "model_type": "gradient_boosting",
+        "n_estimators": 120,
+        "max_depth": 8,
+        "random_state": 42
+      },
+      "created_at": "2026-09-06T16:38:04.529189",
+      "is_champion": false
+    },
+    {
+      "name": "Deep_MLP",
+      "version": 1,
+      "artifact_path": "C:\\Users\\shahe\\aqi-predictor\\models\\Deep_MLP_v1.joblib",
+      "filename": "Deep_MLP_v1.joblib",
+      "metrics": {
+        "rmse_24h": 7.98,
+        "mae_24h": 6.22,
+        "r2_24h": 0.2081,
+        "rmse_48h": 12.1,
+        "mae_48h": 9.56,
+        "r2_48h": -0.8036,
+        "rmse_72h": 16.52,
+        "mae_72h": 13.39,
+        "r2_72h": -2.295,
+        "overall_rmse": 12.69,
+        "overall_mae": 9.73,
+        "overall_r2": -0.9635
+      },
+      "parameters": {
+        "model_type": "deep_mlp",
+        "hidden_layer_sizes": [
+          128,
+          64,
+          32
+        ],
+        "activation": "relu",
+        "alpha": 0.001,
+        "learning_rate_init": 0.001,
+        "max_iter": 250,
+        "random_state": 42
+      },
+      "created_at": "2026-09-06T16:38:04.566259",
+      "is_champion": false
+    }
+  ],
+  "champion": {
+    "name": "Random_Forest",
+    "version": 1,
+    "artifact_path": "C:\\Users\\shahe\\aqi-predictor\\models\\Random_Forest_v1.joblib",
+    "filename": "Random_Forest_v1.joblib",
+    "metrics": {
+      "rmse_24h": 6.14,
+      "mae_24h": 4.7,
+      "r2_24h": 0.5307,
+      "rmse_48h": 8.98,
+      "mae_48h": 6.91,
+      "r2_48h": 0.0066,
+      "rmse_72h": 10.02,
+      "mae_72h": 7.83,
+      "r2_72h": -0.211,
+      "overall_rmse": 8.54,
+      "overall_mae": 6.48,
+      "overall_r2": 0.1087
+    },
+    "parameters": {
+      "model_type": "random_forest",
+      "n_estimators": 100,
+      "max_depth": 12,
+      "random_state": 42
+    },
+    "created_at": "2026-09-06T16:38:04.176483",
+    "is_champion": true
+  }
+}
