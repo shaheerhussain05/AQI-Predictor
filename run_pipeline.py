@@ -15,6 +15,7 @@ import os
 import subprocess
 import sys
 from pathlib import Path
+import pandas as pd
 
 # Ensure root in sys.path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
